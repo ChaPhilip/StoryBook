@@ -16,7 +16,7 @@ module.exports = function(passport) {
          lastName: profile.name.familyName,
          image: profile.photos[0].value
         }
- 
+ // This check if the user already exist
         try {
              let user = await User.findOne({googleId: profile.id})
              if(user) {
