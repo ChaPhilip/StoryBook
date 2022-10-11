@@ -1,0 +1,40 @@
+<h3>Add Story</h3>
+<div class="row">
+    <form action="" method="post " class="col s12">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title">
+                    <input type="text">
+                    <label for =""></label>
+                    </div>
+            </div>
+    
+        <div class="row">
+            <div class="input-field">
+                {{!-- select creates a shell of a drop down --}}
+                <select name="status" id="status">
+                    <option value="public" selected>Public</option>
+                    <option value="private">Private</option>
+
+                </select>
+                <label for="status">Status</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                     <div class="input-field">
+                        <h5>Tell Us Your Story</h5>
+               {{!-- textarea can adjust the size of the box by dragging --}}
+                    <textarea name="body" id="body" >
+                    </textarea>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value ="Save" class ="btn">
+                <a href="/dashboard" class = "btn orange">Cancel</a>
+            </div>
+
+    </form>
+</div>
+
+{{!-- we use form b/c CRUD is built in. no extra packaging just send it. instead of a input box just send the form in 1 package --}}
