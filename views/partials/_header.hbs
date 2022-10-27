@@ -1,13 +1,24 @@
 <nav class="grey darken-3">
+    {{!-- some of these classes are default from Materalize (pre-coded) that helps with styling --}}
+    
     <div class="class nav-wrapper container">
-        <a href="" class="brand-logo center">StoryBooks-Let's Go!</a>
-    </div>
-     <div class="class nav-wrapper container">
-        <a href="" 
-        data-target ="mobile-demo"
-        class = "sidenav-trigger">StoryBooks-Let's Go!</a>
+        
+        <a href="#!" class="brand-logo center">StoryBooks-Let's Go!</a>
+    
+  {{!-- this is our hamburger meun --}}
+        <a href="#"  data-target ="mobile-demo"
+        class = "sidenav-trigger show-on-large"><i class = "fas fa-bars"></i></a>
+       {{!-- we use id ='mobile-demo' to trigger when we click on hamburger  everything in the <li> will open up--}}
+        <ul class="sidenav"id ="mobile-demo">
+            <li><a href="/stories">Stories</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="auth/logout">Logout</a></li>
+        </ul>
+            
     </div>
 
 </nav>
     
-{{!-- we are using Materialize --}}
+{{!-- we are using Materialize --}} 
+{{!-- make sure we add {{>_header}} in the body of layouts main --}}
+{{!-- make sure we intialize the hamburger in our main hbs --}}

@@ -11,12 +11,21 @@
     <title>StoryBooks</title>
 </head>
 <body>
+    {{!-- {{>_header}} from partials _headers --}}
+    {{>_header}}
 <div class = "container">
     {{{body}}}
+     {{!-- triple bracket help base by html --}}
+
     
 </div>
      <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+   {{!-- our hamburger to have some behavior --}}
+    <script>
+        M.Sidenav.init(document.querySelector('.sidenav'))
+    </script>
+        
 </body>
 </html>
