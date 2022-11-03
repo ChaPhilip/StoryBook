@@ -1,1 +1,34 @@
-<h1>DashBoard</h1> 
+<h6>DashBoard</h6>
+<h3>Welcome {{name}}</h3>
+<p>Here are your stories</p> 
+{{!-- this is handlebar syntax --}}
+{{!-- if true, truthy, stories will display --}}
+{{#if stories}} 
+{{!-- tr = table row th=table head --}}
+{{!-- striped will be different color rows --}}
+{{!-- th column header --}}
+<table class = "striped">
+
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <body>
+                {{#each stories}}
+                    <tr>
+                        <td><a href ="/stories/{{_id}}">{{title}}</a></td>
+                        <td>{{createdAt}}</td>
+                        <td> <span class="dash-status">{{status}}</span></td>
+                        <td></td>
+                    </tr>
+               {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p> You have not created any stories</p>
+{{/if}}
+{{!-- this ends the if --}}

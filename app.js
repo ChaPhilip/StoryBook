@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const passport = require('passport')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const connectDB = require('./config/db')
 
 
@@ -38,6 +39,9 @@ app.use(
         secret:'keyboard cat',
         resave: false,
         saveUninitialized: false,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGO_URI
+        })
         
     })
 )
@@ -61,3 +65,4 @@ app.listen(
     PORT,
     console.log(`Server Running in ${process.env.NODE_ENV} mode on port ${PORT}`)
     )
+    
