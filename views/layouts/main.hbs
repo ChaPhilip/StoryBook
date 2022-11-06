@@ -14,10 +14,9 @@
     {{!-- {{>_header}} from partials _headers --}}
     {{>_header}}
     {{>_add_btn}}
-<<<<<<< HEAD
+
     {{!-- got the button from partials, the red button at the bottom page --}}
-=======
->>>>>>> 5332ad41c060492e1859daf9451172e332e8346a
+
 <div class = "container">
     {{{body}}}
      {{!-- triple bracket help base by html --}}
@@ -27,10 +26,25 @@
      <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+
+{{!-- this gives us a fancy textbox --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.14.1/ckeditor.js"
+        integrity="sha256-bEIQpI72w9NJuIVhTLFUF2/8uxl0u5800r8ddViuv+o=" crossorigin="anonymous"></script>
+
+
+
    {{!-- our hamburger to have some behavior --}}
+   {{!-- in handlebars we need to first initialize before we can use the actions like animations. --}}
+   {{!-- note M.formselect gave us the selector dropdown of public and private under status in add stories --}}
     <script>
         M.Sidenav.init(document.querySelector('.sidenav'))
+        M.FormSelect.init(document.querySelector('#status'))
+       
+       CKEDITOR.replace('body', {
+            plugins:'wysiwygarea, toolbar, basicstyles, link'
+        })
     </script>
+    
         
 </body>
 </html>
