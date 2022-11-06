@@ -16,6 +16,12 @@ connectDB()
 
 const app = express()
 
+//Body parser
+// middle for our form data in our routes/stories.js
+app.use(express.urlencoded({ extended: false}))
+app.use(express.json())
+
+
 //Logging
 if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'))

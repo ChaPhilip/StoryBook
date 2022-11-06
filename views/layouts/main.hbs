@@ -36,6 +36,8 @@
    {{!-- our hamburger to have some behavior --}}
    {{!-- in handlebars we need to first initialize before we can use the actions like animations. --}}
    {{!-- note M.formselect gave us the selector dropdown of public and private under status in add stories --}}
+   {{!-- CKEDITOR gave us the the ability to bold underline ect --}}
+   {{!-- note that CKEDITOR replace('body') is from stories/add in the textarea name = "body" --}}
     <script>
         M.Sidenav.init(document.querySelector('.sidenav'))
         M.FormSelect.init(document.querySelector('#status'))

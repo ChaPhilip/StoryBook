@@ -1,31 +1,30 @@
 const mongoose = require('mongoose')
 
 const StorySchema = new mongoose.Schema({
-    title:{
-        type:String,
-        required:true,
-        trim: true,
+    title: {
+      type: String,
+      required: true,
+      trim: true,
     },
-   body:{
-        type:String,
-        required:true
+    body: {
+      type: String,
+      required: true,
     },
-    status:{
-        type:String,
-        default:'public',
-        enum:['public', 'private'],
+    status: {
+      type: String,
+      default: 'public',
+      enum: ['public', 'private'],
     },
-    user:{
-        type: mongoose.Schema.Types.ObjectId, //connecting the story not by name but unique ID
-        ref: 'User',
-         //!Change: this field should be required because the app will break if the user is not present.
-        required: true,
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      //!Change: this field should be required because the app will break if the user is not present.
+      required: true,
     },
-   
-    createdAt:{
-        type: Date,
-        default:Date.now
-    }
-})
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+  })
 
-module.exports = mongoose.model('Story',StorySchema)
+module.exports = mongoose.model('Story', StorySchema)
