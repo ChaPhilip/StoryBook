@@ -11,20 +11,16 @@ router.get('/add', ensureAuth, (req,res) => {
     res.render('stories/add')
 })
 
-//@desc Process add form
-//@route POST /stories
-//we have to make middleware in app.js "Body Parser"
 
-router.post('/', ensureAuth, async (req,res) => {
-    try {
-        req.body.user = req.user.id
-        await Story.create(req.body)
-        res.redirect('/dashboard')
-    } catch (err) {
+//@desc    Process add form
+//@route   POST /stories
+router.post('/', ensureAuth,(req,res)=> {
+    try{
+
+    }catch (err){
         console.error(err)
         res.render('error/500')
     }
 })
-
 
 module.exports = router
