@@ -11,7 +11,18 @@ router.get('/add', ensureAuth, (req,res) => {
     res.render('stories/add')
 })
 
-
+//@desc Process add form
+//@Route POST /stories
+router.post('/', ensureAuth, async (req,res) => {
+    try {
+        req.body.user = req.user.id
+        await Story.create(req.body)
+        res.redirect('/dashboard')
+    } catch (err) {
+        console.error(err)
+        res.render('error/500')
+    }
+})
 
 //@desc Showw all public stories
 //@Route GET /stories
@@ -80,8 +91,6 @@ router.get('/edit/:id', ensureAuth, async (req,res) => {
 
 //@desc Update story
 //@route PUT /stories/:id
-//@desc Update Story
-//@Route PUT /stories/:id
 router.put('/:id', ensureAuth, async (req,res) => {
     try{
         let story = await Story.findById(req.params.id).lean()
