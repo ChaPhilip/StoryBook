@@ -25,6 +25,9 @@ router.get('/dashboard', ensureAuth, async (req,
             const stories = await Story.find({ user: 
             req.user.id}).lean() // .lean()get a smaller json file only the basic. lite version 
             //pass user and stories to be render in dashboard
+            console.log(req.user.id)
+            console.log(stories)
+            
             res.render('dashboard',{
                 name: req.user.firstName,
                 stories
